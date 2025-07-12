@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Download, Github, Linkedin, Mail, ExternalLink } from "lucide-react";
+import { Download, Github, Linkedin, Mail, Terminal, Code, Database } from "lucide-react";
 
 const HeroSection = () => {
   const [typedText, setTypedText] = useState("");

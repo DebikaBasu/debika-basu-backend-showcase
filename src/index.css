@@ -8,56 +8,70 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Dark portfolio theme - Deep navy with blue/purple gradients */
-    --background: 220 27% 8%;
+    /* Backend Engineer Dark Theme - Navy/Charcoal with Neon Accents */
+    --background: 220 30% 6%;
     --foreground: 210 40% 98%;
 
-    --card: 220 25% 10%;
+    --card: 220 25% 8%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 220 25% 10%;
+    --popover: 220 25% 8%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 220 27% 8%;
+    --primary: 200 100% 60%;  /* Neon blue */
+    --primary-foreground: 220 30% 6%;
 
-    --secondary: 220 20% 15%;
+    --secondary: 220 20% 12%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 220 15% 18%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 215 20% 70%;
 
-    --accent: 262 83% 58%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 270 100% 70%;  /* Neon purple */
+    --accent-foreground: 220 30% 6%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 15% 20%;
-    --input: 220 15% 20%;
-    --ring: 217 91% 60%;
+    --border: 220 15% 18%;
+    --input: 220 15% 18%;
+    --ring: 200 100% 60%;
 
     --radius: 0.75rem;
 
-    /* Custom portfolio colors */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(262 83% 58%));
-    --gradient-secondary: linear-gradient(135deg, hsl(220 25% 10%), hsl(220 20% 15%));
-    --gradient-accent: linear-gradient(135deg, hsl(262 83% 58%), hsl(217 91% 60%));
+    /* Backend Engineering Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(200 100% 60%), hsl(270 100% 70%));
+    --gradient-secondary: linear-gradient(135deg, hsl(220 25% 8%), hsl(220 20% 12%));
+    --gradient-accent: linear-gradient(135deg, hsl(270 100% 70%), hsl(200 100% 60%));
+    --gradient-terminal: linear-gradient(135deg, hsl(220 30% 6%), hsl(220 25% 8%));
+    --gradient-glow: linear-gradient(135deg, hsl(200 100% 60% / 0.1), hsl(270 100% 70% / 0.1));
     
-    /* Tech stack colors */
+    /* Tech stack colors - Backend focused */
     --java: 25 95% 53%;
     --spring: 120 61% 34%;
     --aws: 39 100% 50%;
     --docker: 207 90% 54%;
     --mysql: 27 94% 55%;
+    --kafka: 0 0% 20%;
+    --kubernetes: 230 100% 60%;
+    --redis: 5 85% 60%;
+    
+    /* Glassmorphism & Neon Effects */
+    --glass-bg: hsl(220 25% 8% / 0.3);
+    --glass-border: hsl(200 100% 60% / 0.2);
+    --neon-glow: 0 0 20px hsl(200 100% 60% / 0.4);
+    --neon-glow-purple: 0 0 20px hsl(270 100% 70% / 0.4);
+    --terminal-glow: 0 0 15px hsl(120 100% 50% / 0.3);
     
     /* Shadows */
-    --shadow-glow: 0 0 30px hsl(217 91% 60% / 0.3);
-    --shadow-card: 0 10px 30px -10px hsl(220 27% 8% / 0.5);
+    --shadow-glow: 0 0 30px hsl(200 100% 60% / 0.3);
+    --shadow-card: 0 10px 30px -10px hsl(220 30% 6% / 0.6);
+    --shadow-terminal: 0 4px 20px hsl(120 100% 50% / 0.1);
     
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-spring: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --transition-glow: all 0.4s ease-in-out;
 
     --sidebar-background: 0 0% 98%;
 
@@ -127,16 +141,16 @@ All colors MUST be HSL.
 }
 
 @layer components {
-  /* Hero animations */
+  /* Backend Engineering Animations */
   .typing-animation {
     overflow: hidden;
     border-right: 3px solid hsl(var(--primary));
     white-space: nowrap;
-    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+    animation: typing 4s steps(50, end), blink-caret 0.75s step-end infinite;
   }
 
   .fade-in-up {
-    animation: fade-in-up 0.6s ease-out forwards;
+    animation: fade-in-up 0.8s ease-out forwards;
   }
 
   .slide-in-left {
@@ -147,6 +161,47 @@ All colors MUST be HSL.
     animation: slide-in-right 0.8s ease-out forwards;
   }
 
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  /* Terminal & Code Styles */
+  .terminal-window {
+    background: var(--gradient-terminal);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-terminal);
+  }
+
+  .terminal-header {
+    background: hsl(220 20% 12%);
+    border-bottom: 1px solid hsl(220 15% 18%);
+  }
+
+  .terminal-text {
+    font-family: 'JetBrains Mono', monospace;
+    color: hsl(120 100% 50%);
+    text-shadow: var(--terminal-glow);
+  }
+
+  /* Glassmorphism Components */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    transition: var(--transition-glow);
+  }
+
+  .glass-card:hover {
+    border-color: hsl(var(--primary) / 0.4);
+    box-shadow: var(--neon-glow);
+    transform: translateY(-2px);
+  }
+
   /* Gradient text */
   .gradient-text {
     background: var(--gradient-primary);
@@ -155,46 +210,93 @@ All colors MUST be HSL.
     background-clip: text;
   }
 
-  /* Gradient buttons */
+  .neon-text {
+    color: hsl(var(--primary));
+    text-shadow: var(--neon-glow);
+  }
+
+  /* Backend Engineering Buttons */
   .btn-gradient {
     background: var(--gradient-primary);
     border: none;
-    transition: var(--transition-smooth);
-    box-shadow: var(--shadow-glow);
+    transition: var(--transition-glow);
+    box-shadow: var(--neon-glow);
   }
 
   .btn-gradient:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 40px hsl(217 91% 60% / 0.4);
+    box-shadow: 0 0 25px hsl(var(--primary) / 0.6), 0 0 50px hsl(var(--accent) / 0.3);
   }
 
-  /* Tech icons hover effect */
+  .btn-terminal {
+    background: hsl(220 30% 6%);
+    border: 1px solid hsl(120 100% 50% / 0.3);
+    color: hsl(120 100% 50%);
+    font-family: 'JetBrains Mono', monospace;
+    transition: var(--transition-glow);
+  }
+
+  .btn-terminal:hover {
+    border-color: hsl(120 100% 50%);
+    box-shadow: var(--terminal-glow);
+    color: hsl(120 100% 80%);
+  }
+
+  /* Tech Stack Icons */
   .tech-icon {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--glass-border);
     transition: var(--transition-spring);
-    border: 1px solid hsl(var(--border));
   }
 
   .tech-icon:hover {
     transform: translateY(-8px) scale(1.05);
-    box-shadow: var(--shadow-card);
-    border-color: hsl(var(--primary));
+    border-color: hsl(var(--primary) / 0.6);
+    box-shadow: var(--neon-glow);
   }
 
-  /* Glowing cards */
-  .glow-card {
-    background: var(--gradient-secondary);
-    border: 1px solid hsl(var(--border));
+  /* System Diagram Styles */
+  .system-node {
+    background: var(--glass-bg);
+    border: 2px solid var(--glass-border);
+    backdrop-filter: blur(10px);
     transition: var(--transition-smooth);
   }
 
-  .glow-card:hover {
-    border-color: hsl(var(--primary) / 0.5);
-    box-shadow: 0 0 25px hsl(var(--primary) / 0.15);
+  .system-node:hover {
+    border-color: hsl(var(--primary));
+    box-shadow: var(--neon-glow);
+  }
+
+  .connection-line {
+    stroke: hsl(var(--primary) / 0.6);
+    stroke-width: 2;
+    stroke-dasharray: 5,5;
+    animation: dash-flow 2s linear infinite;
   }
 
   /* Code font for headers */
   .code-font {
     font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  }
+
+  /* Background Animations */
+  .code-rain {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .code-char {
+    position: absolute;
+    color: hsl(var(--primary) / 0.1);
+    font-family: 'JetBrains Mono', monospace;
+    animation: code-fall linear infinite;
   }
 }
 
@@ -204,6 +306,7 @@ All colors MUST be HSL.
   }
 }
 
+/* Backend Engineering Keyframes */
 @keyframes typing {
   from { width: 0; }
   to { width: 100%; }
@@ -244,5 +347,37 @@ All colors MUST be HSL.
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 5px hsl(var(--primary) / 0.2); }
+  100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.6), 0 0 30px hsl(var(--accent) / 0.3); }
+}
+
+@keyframes dash-flow {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 20; }
+}
+
+@keyframes code-fall {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
   }
 }
