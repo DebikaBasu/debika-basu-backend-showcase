@@ -50,19 +50,19 @@ const ContactSection = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "debika.basu@email.com",
-      href: "mailto:debika.basu@email.com"
+      value: "debika.connect@gmail.com",
+      href: "mailto:debika.connect@gmail.com"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+91 98765 43210",
+      value: "+91 62910 43389",
       href: "tel:+919876543210"
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Bangalore, India",
+      value: "Kolkata, India",
       href: null
     }
   ];

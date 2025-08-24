@@ -4,11 +4,14 @@ import { Badge } from "@/components/ui/badge";
 import { Github, ExternalLink, Database, Server, Cloud } from "lucide-react";
 import bankingImage from "@/assets/banking-app-project.jpg";
 import ecommerceImage from "@/assets/ecommerce-project.jpg";
+import emsImage from "@/assets/ems.png";
+import HMS from "@/assets/hms.png";
+
 
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "BankingApp Backend",
+      title: "Banking App Backend",
       description: "Enterprise-grade banking application backend with comprehensive financial services including account management, transactions, and real-time notifications.",
       image: bankingImage,
       category: "Backend System",
@@ -41,36 +44,62 @@ const ProjectsSection = () => {
       ],
       githubUrl: "https://github.com/debikabasu/e-kartcom-backend",
       liveUrl: "https://ekart-api-demo.com",
-      status: "Active Development"
+      status: "Production"
     },
     {
-      title: "Inventory Management System",
-      description: "Real-time inventory tracking system with automated stock alerts, supplier management, and analytics dashboard for supply chain optimization.",
-      image: "/api/placeholder/800/400",
-      category: "Enterprise System",
-      technologies: ["Java", "Spring Data JPA", "MySQL", "AWS S3", "CloudWatch", "Maven"],
-      highlights: [
-        "Real-time inventory tracking with automatic reorder points",
-        "Supplier portal integration with automated ordering",
-        "Advanced analytics with custom reports generation",
-        "Batch processing for large inventory updates",
-        "RESTful APIs with comprehensive error handling",
-        "Audit trail for all inventory movements"
+      "title": "Employee Attendance Leave Management System",
+      "description": "Web-based application for managing employee attendance, leave requests, and real-time status tracking with role-based access control and reporting features.",
+      "image": emsImage,
+      "category": "Backend System",
+      "technologies": ["Java", "Spring Boot", "Maven", "Spring Security", "MySQL", "Docker", "REST API", "AWS"],
+      "highlights": [
+        "Mark attendance and manage leave requests with approval workflow",
+        "Role-based access control for employees and admins",
+        "Daily attendance tracking with real-time status updates",
+        "CORS-configured secure RESTful API endpoints",
+        "Integration with SQL database for persistent data management",
+        "Custom error handling and exception management"
       ],
-      githubUrl: "https://github.com/debikabasu/inventory-management",
-      liveUrl: null,
-      status: "Completed"
+      "githubUrl": "https://github.com/DebikaBasu/employee-attendance-leave-management",
+      "liveUrl": null,
+      "status": "Completed"
+    },
+    {
+      "title": "Hospital Management Service",
+      "description": "Backend service for managing hospital operations including patient registration, doctor management, appointments, prescriptions, and billing with secure, role-based access.",
+      "image": HMS,
+      "category": "Backend Service",
+      "technologies": ["Java", "Spring Boot", "Maven", "Docker", "Spring Data JPA", "MySQL", "REST API", "AWS"],
+      "highlights": [
+        "Patient, doctor, and department CRUD with validation",
+        "Appointment scheduling and status updates",
+        "Prescription and billing endpoints with audit trails",
+        "Role-based access control for admin, doctor, and staff",
+        "CORS-configured, secure RESTful APIs",
+        "Global exception handling and custom error responses",
+        "Persistent data storage with MySQL via JPA"
+      ],
+      "githubUrl": "https://github.com/DebikaBasu/Hospital-Management-Service",
+      "liveUrl": null,
+      "status": "Completed"
     }
+
   ];
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case "Production": return "bg-green-500/10 text-green-400 border-green-500/20";
-      case "Active Development": return "bg-blue-500/10 text-blue-400 border-blue-500/20";
-      case "Completed": return "bg-purple-500/10 text-purple-400 border-purple-500/20";
-      default: return "bg-muted";
+      case "Production":
+        return "bg-emerald-500/10 text-emerald-500 border-emerald-500/20"; // fresh green
+      case "Active Development":
+        return "bg-indigo-500/10 text-indigo-500 border-indigo-500/20";   // deep indigo
+      case "Completed":
+        return "bg-amber-500/10 text-amber-500 border-amber-500/20";      // warm amber
+      default:
+        return "bg-slate-500/10 text-slate-500 border-slate-500/20";      // neutral slate
+
     }
   };
+
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
@@ -89,7 +118,7 @@ const ProjectsSection = () => {
             Featured <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Showcase of backend systems and architectures I've designed and implemented, 
+            Showcase of backend systems and architectures I've designed and implemented,
             demonstrating expertise in scalable, production-ready solutions.
           </p>
         </div>
@@ -98,8 +127,8 @@ const ProjectsSection = () => {
           {projects.map((project, index) => (
             <Card key={index} className="glow-card overflow-hidden group hover:scale-105 transition-all duration-300">
               <div className="relative overflow-hidden">
-                <img 
-                  src={project.image} 
+                <img
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
                 />
@@ -140,9 +169,9 @@ const ProjectsSection = () => {
                 <div className="mb-6">
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
-                      <Badge 
-                        key={tech} 
-                        variant="outline" 
+                      <Badge
+                        key={tech}
+                        variant="outline"
                         className="text-xs bg-primary/5 border-primary/20 text-primary"
                       >
                         {tech}
@@ -152,9 +181,9 @@ const ProjectsSection = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  <Button 
-                    variant="outline" 
-                    size="sm" 
+                  <Button
+                    variant="outline"
+                    size="sm"
                     className="flex-1 border-primary/30 hover:border-primary hover:bg-primary/10"
                     asChild
                   >
@@ -164,8 +193,8 @@ const ProjectsSection = () => {
                     </a>
                   </Button>
                   {project.liveUrl && (
-                    <Button 
-                      size="sm" 
+                    <Button
+                      size="sm"
                       className="flex-1 btn-gradient"
                       asChild
                     >
@@ -182,8 +211,8 @@ const ProjectsSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             size="lg"
             className="border-primary/30 hover:border-primary hover:bg-primary/10"
             asChild

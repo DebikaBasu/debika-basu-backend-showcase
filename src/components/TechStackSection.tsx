@@ -1,82 +1,126 @@
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  FaJava,
+  FaAws,
+  FaGitAlt,
+  FaJs,
+} from "react-icons/fa";
+import {
+  SiSpringboot,
+  SiDocker,
+  SiMysql,
+  SiApachekafka,
+  SiGithubactions,
+  // SiMicrostrategy,
+} from "react-icons/si";
+import { motion } from "framer-motion";
+
+// Floating animation variants
+const floatingVariants = (duration: number) => ({
+  initial: { y: 0 },
+  animate: {
+    y: [0, -10, 0],
+    transition: {
+      duration: duration,
+      ease: "easeInOut",
+      repeat: Infinity,
+    },
+  },
+});
 
 const TechStackSection = () => {
   const technologies = [
     {
       name: "Java",
-      icon: "☕",
+      icon: <FaJava className="w-12 h-12 text-orange-500" />,
       category: "Language",
-      color: "text-java"
+      delay: 3.5,
     },
     {
       name: "Spring Boot",
-      icon: "🍃",
+      icon: <SiSpringboot className="w-12 h-12 text-green-600" />,
       category: "Framework",
-      color: "text-spring"
+      delay: 3.5,
     },
     {
       name: "Docker",
-      icon: "🐳",
+      icon: <SiDocker className="w-12 h-12 text-sky-500" />,
       category: "Containerization",
-      color: "text-docker"
+      delay: 4,
     },
     {
       name: "AWS",
-      icon: "☁️",
+      icon: <FaAws className="w-12 h-12 text-yellow-500" />,
       category: "Cloud",
-      color: "text-aws"
+      delay: 4,
     },
     {
       name: "MySQL",
-      icon: "🗄️",
+      icon: <SiMysql className="w-12 h-12 text-blue-700" />,
       category: "Database",
-      color: "text-mysql"
+      delay: 3,
     },
     {
       name: "DynamoDB",
-      icon: "⚡",
-      category: "NoSQL",
-      color: "text-primary"
+      icon: (
+        <img
+          src="\src\icons\ddb.png"
+          alt="DynamoDB"
+          className="w-16 h-16 object-contain"
+        />
+      ),
+      category: "Database",
+      delay: 4,
     },
     {
       name: "Git",
-      icon: "📝",
+      icon: <FaGitAlt className="w-12 h-12 text-red-500" />,
       category: "Version Control",
-      color: "text-foreground"
+      delay: 3.5,
     },
     {
       name: "Kafka",
-      icon: "📨",
+      icon: <SiApachekafka className="w-12 h-12 text-gray-700" />,
       category: "Messaging",
-      color: "text-accent"
+      delay: 4,
     },
     {
       name: "Hibernate",
-      icon: "🔄",
+      icon: (
+        <img
+          src="\src\icons\hibernate.png"
+          alt="Hibernate"
+          className="w-12 h-12 object-contain"
+        />
+      ),
       category: "ORM",
-      color: "text-muted-foreground"
+      delay: 4,
     },
     {
       name: "JavaScript",
-      icon: "⚡",
+      icon: <FaJs className="w-12 h-12 text-yellow-400" />,
       category: "Language",
-      color: "text-aws"
+      delay: 3.5,
     },
     {
       name: "GitHub Actions",
-      icon: "🚀",
+      icon: <SiGithubactions className="w-12 h-12 text-blue-400" />,
       category: "CI/CD",
-      color: "text-primary"
+      delay: 4,
     },
     {
       name: "Microservices",
-      icon: "🏗️",
+      icon: (
+        <img
+          src="\src\icons\microservices.png"
+          alt="Hibernate"
+          className="w-16 h-16 object-contain"
+        />
+      ),
       category: "Architecture",
-      color: "text-accent"
-    }
+      delay: 4,
+    },
   ];
-
-  const categories = ["Language", "Framework", "Cloud", "Database", "Tools"];
 
   return (
     <section id="tech-stack" className="py-20 px-6 bg-secondary/10">
@@ -86,33 +130,36 @@ const TechStackSection = () => {
             Technical <span className="gradient-text">Stack</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A comprehensive toolkit of modern technologies and frameworks I use to build 
+            A comprehensive toolkit of modern technologies and frameworks I use to build
             robust, scalable backend systems and cloud-native applications.
           </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {technologies.map((tech, index) => (
-            <Card 
-              key={tech.name} 
-              className="tech-icon p-6 text-center cursor-pointer group"
-              style={{ animationDelay: `${index * 0.1}s` }}
+            <Card
+              key={tech.name}
+              className="tech-icon p-6 text-center cursor-pointer group transition-transform hover:scale-105"
             >
-              <CardContent className="p-0">
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
+              <CardContent className="p-0 flex flex-col items-center justify-center space-y-3">
+                <motion.div
+                  // variants={floatingVariants(tech.delay ?? 3)}
+                  initial="initial"
+                  animate="animate"
+                  className="transition-transform duration-300 group-hover:scale-110"
+                >
                   {tech.icon}
-                </div>
-                <h3 className={`font-semibold text-lg mb-2 ${tech.color} group-hover:text-primary transition-colors duration-300`}>
+                </motion.div>
+                <h3 className="font-semibold text-lg group-hover:text-primary transition-colors duration-300">
                   {tech.name}
                 </h3>
-                <p className="text-sm text-muted-foreground">
-                  {tech.category}
-                </p>
+                <p className="text-sm text-muted-foreground">{tech.category}</p>
               </CardContent>
             </Card>
           ))}
         </div>
 
+        {/* Specializations Section */}
         <div className="mt-16 text-center">
           <h3 className="text-2xl font-semibold mb-8 text-foreground">Key Specializations</h3>
           <div className="grid md:grid-cols-3 gap-8">
@@ -125,7 +172,7 @@ const TechStackSection = () => {
                 <li>• JPA/Hibernate ORM</li>
               </ul>
             </div>
-            
+
             <div className="p-6 rounded-lg bg-card border border-border">
               <h4 className="text-lg font-semibold mb-4 text-accent">Cloud & DevOps</h4>
               <ul className="text-muted-foreground space-y-2 text-left">
@@ -135,7 +182,7 @@ const TechStackSection = () => {
                 <li>• Infrastructure as Code</li>
               </ul>
             </div>
-            
+
             <div className="p-6 rounded-lg bg-card border border-border">
               <h4 className="text-lg font-semibold mb-4 text-primary">Data & Messaging</h4>
               <ul className="text-muted-foreground space-y-2 text-left">

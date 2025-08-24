@@ -17,6 +17,7 @@ export default {
 				'2xl': '1400px'
 			}
 		},
+		
 		extend: {
 			colors: {
 				border: 'hsl(var(--border))',
@@ -72,7 +73,9 @@ export default {
 			fontFamily: {
 				sans: ['Inter', 'system-ui', 'sans-serif'],
 				mono: ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
-				code: ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace']
+				code: ['JetBrains Mono', 'Fira Code', 'Consolas', 'monospace'],
+				grotesk: ["Space Grotesk", "sans-serif"],
+				satoshi: ["Satoshi", "sans-serif"]
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',

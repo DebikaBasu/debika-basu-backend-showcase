@@ -5,52 +5,54 @@ import { Calendar, MapPin, Building } from "lucide-react";
 const ExperienceSection = () => {
   const experiences = [
     {
-      company: "6Livo Technologies",
-      role: "Backend Software Engineer",
-      duration: "2022 - Present",
-      location: "Bangalore, India",
+      company: "6 Livo Technologies Pvt. Ltd.",
+      role: "Software Engineer",
+      duration: "2025 - Present",
+      location: "Kolkata, India",
       type: "Full-time",
       description: "Leading backend development initiatives for scalable enterprise applications using Java and SpringBoot ecosystem.",
       achievements: [
-        "Architected and implemented microservices-based backend systems serving 100K+ users",
-        "Reduced API response times by 40% through optimization and caching strategies",
-        "Implemented event-driven architecture using Apache Kafka for real-time data processing",
-        "Set up CI/CD pipelines with GitHub Actions, reducing deployment time by 60%",
-        "Mentored junior developers and conducted code reviews maintaining 95% code quality score"
+        "‣ Architected and implemented microservices-based backend systems serving 100K+ users",
+        "‣ Reduced API response times by 60% through optimization and caching strategies",
+        "‣ Implemented event-driven architecture using Apache Kafka for real-time data processing",
+        "‣ Set up CI/CD pipelines with GitHub Actions, reducing deployment time by 80%",
+        "‣ Mentored junior developers and conducted code reviews maintaining 95% code quality score"
       ],
+
       technologies: ["Java", "SpringBoot", "AWS", "Docker", "Kafka", "MySQL", "DynamoDB"]
     },
     {
-      company: "TechStart Solutions",
-      role: "Junior Java Developer",
-      duration: "2021 - 2022",
-      location: "Mumbai, India",
+      company: "Agnik International Pvt Ltd.",
+      role: "Junior Software Developer",
+      duration: "March 2024 - December 2024",
+      location: "Kolkata, India",
       type: "Full-time",
       description: "Developed and maintained Java-based web applications with focus on backend API development and database integration.",
       achievements: [
-        "Built RESTful APIs using Spring Framework serving multiple client applications",
-        "Optimized database queries resulting in 25% performance improvement",
-        "Collaborated with frontend teams to design and implement robust API contracts",
-        "Participated in agile development cycles with 2-week sprints",
-        "Implemented unit and integration tests achieving 85% code coverage"
+        "‣ Built RESTful APIs using Spring Framework serving multiple client applications",
+        "‣ Optimized database queries resulting in 45% performance improvement",
+        "‣ Collaborated with frontend teams to design and implement robust API contracts",
+        "‣ Participated in agile development cycles with 2-week sprints",
+        "‣ Implemented unit and integration tests achieving 85% code coverage"
       ],
-      technologies: ["Java", "Spring", "MySQL", "Git", "Maven", "JUnit"]
+
+      technologies: ["Dot Net", "OOps", "MySQL", "Git"]
     },
     {
-      company: "CodeCraft Internship",
-      role: "Software Development Intern",
-      duration: "Summer 2021",
+      company: "BasketHunt Pvt Ltd.",
+      role: "Web Development Intern",
+      duration: "Winter 2022",
       location: "Remote",
       type: "Internship",
-      description: "Gained hands-on experience in full-stack development with emphasis on backend technologies and modern development practices.",
+      description: "Gained hands-on experience in frontend development with emphasis on web technologies and modern development practices.",
       achievements: [
-        "Developed REST APIs for an e-commerce platform using Spring Boot",
-        "Implemented JWT-based authentication and authorization",
-        "Created comprehensive API documentation using Swagger/OpenAPI",
-        "Learned Docker containerization and basic AWS services",
-        "Participated in daily standups and sprint planning sessions"
+        "‣ Developed REST APIs for an e-commerce platform using React",
+        "‣ Implemented responsive design and cross-browser compatibility",
+        "‣ Collaborated with cross-functional teams to deliver high-quality code",
+        "‣ Participated in daily standups and sprint planning sessions"
       ],
-      technologies: ["Java", "SpringBoot", "JavaScript", "Docker", "Git"]
+
+      technologies: ["Html", "React", "JavaScript", "Git"]
     }
   ];
 
@@ -62,7 +64,7 @@ const ExperienceSection = () => {
             Work <span className="gradient-text">Experience</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            My professional journey in backend software engineering, focusing on building 
+            My professional journey in backend software engineering, focusing on building
             scalable systems and delivering high-quality solutions.
           </p>
         </div>
@@ -73,8 +75,8 @@ const ExperienceSection = () => {
 
           <div className="space-y-12">
             {experiences.map((exp, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`relative flex items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
               >
                 {/* Timeline dot */}
@@ -125,9 +127,9 @@ const ExperienceSection = () => {
 
                       <div className="flex flex-wrap gap-2">
                         {exp.technologies.map((tech) => (
-                          <Badge 
-                            key={tech} 
-                            variant="outline" 
+                          <Badge
+                            key={tech}
+                            variant="outline"
                             className="text-xs bg-primary/5 border-primary/20 text-primary hover:bg-primary/10"
                           >
                             {tech}
